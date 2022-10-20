@@ -32,7 +32,11 @@ public class LibraryController {
         return "{status:Success}";
 
         }
-
+@CrossOrigin(origins = "*")
+    @PostMapping(path = "/searchBook",consumes = "application/json",produces = "application/json")
+    public List<LibraryModel>searchBook(@RequestBody LibraryModel libray){
+        return (List<LibraryModel>) dao.searchBook(libray.getBookName());
+}
 
 
 }
